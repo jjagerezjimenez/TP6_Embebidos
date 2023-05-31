@@ -818,7 +818,7 @@ LOAD /usr/local/share/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eab
                 [!provide]                        PROVIDE (_pvHeapStart = DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x0000000010008000                PROVIDE (_vStackTop = DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
                 0xffffffff53ff6cc2                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
-OUTPUT(build/bin/TP4.elf elf32-littlearm)
+OUTPUT(build/bin/TP6_Embebidos.elf elf32-littlearm)
 LOAD linker stubs
 
 .ARM.attributes
@@ -962,21 +962,21 @@ LOAD linker stubs
  .debug_macro   0x0000000000006083      0x33c build/obj/src/main.o
  .debug_macro   0x00000000000063bf       0x1d build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 
-.debug_line     0x0000000000000000     0x1ef8
- .debug_line    0x0000000000000000      0x8e3 build/obj/src/bsp_GJ.o
- .debug_line    0x00000000000008e3      0xbcc build/obj/src/digital_GJ.o
- .debug_line    0x00000000000014af      0x852 build/obj/src/main.o
- .debug_line    0x0000000000001d01      0x1f7 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+.debug_line     0x0000000000000000     0x1f58
+ .debug_line    0x0000000000000000      0x901 build/obj/src/bsp_GJ.o
+ .debug_line    0x0000000000000901      0xbea build/obj/src/digital_GJ.o
+ .debug_line    0x00000000000014eb      0x870 build/obj/src/main.o
+ .debug_line    0x0000000000001d5b      0x1fd build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
 
-.debug_str      0x0000000000000000    0x1b6b5
- .debug_str     0x0000000000000000    0x177cc build/obj/src/bsp_GJ.o
-                                      0x179af (size before relaxing)
- .debug_str     0x00000000000177cc     0x3c8d build/obj/src/digital_GJ.o
-                                      0x1a82f (size before relaxing)
- .debug_str     0x000000000001b459       0x4f build/obj/src/main.o
-                                      0x16e62 (size before relaxing)
- .debug_str     0x000000000001b4a8      0x20d build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
-                                       0x2f64 (size before relaxing)
+.debug_str      0x0000000000000000    0x1b6d3
+ .debug_str     0x0000000000000000    0x177d8 build/obj/src/bsp_GJ.o
+                                      0x179bb (size before relaxing)
+ .debug_str     0x00000000000177d8     0x3c93 build/obj/src/digital_GJ.o
+                                      0x1a83b (size before relaxing)
+ .debug_str     0x000000000001b46b       0x55 build/obj/src/main.o
+                                      0x16e6e (size before relaxing)
+ .debug_str     0x000000000001b4c0      0x213 build/obj/external/base/soc/lpc43xx/startup/cr_startup_lpc43xx.o
+                                       0x2f70 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x524
  .debug_frame   0x0000000000000000       0xf0 build/obj/src/bsp_GJ.o
