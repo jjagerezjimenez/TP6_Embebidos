@@ -1,3 +1,6 @@
+#ifndef PANTALLA_GJ_H
+#define PANTALLA_GJ_H
+
 #include <stdint.h>
 
 
@@ -24,7 +27,7 @@ typedef void(*display_digit_on_t)(uint8_t digit);
 
 typedef struct display_driver_s{
     display_screen_off_t    ScreenTurnOff;
-    display_segments_on_t   SegmentesTurnOn;
+    display_segments_on_t   SegmentsTurnOn;
     display_digit_on_t      DigitTurnOn;
 } const * const display_driver_t;
 
@@ -35,3 +38,6 @@ display_t Display_Create(uint8_t digits, display_driver_t driver);
 void Display_WriteBCD(display_t display, uint8_t * number, uint8_t size);
 
 void Display_Refresh(display_t display);
+
+
+#endif
