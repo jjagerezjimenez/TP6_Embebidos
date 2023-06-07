@@ -66,51 +66,16 @@
 
 int main(void) {
 
-    //int divisor = 0;
-    //bool current_state, last_state = false;
+
     board_t board = BoardCreate();
 
 
 
     while (true) {
 
-        /*if (DigitalInput_GetState(board->boton_prueba)) {
-            DigitalOutput_Activate(board->Led_azul);
-        } else {
-            DigitalOutput_Desactivate(board->Led_azul);
-        }
-
-        if (DigitalInput_HasActivate(board->boton_cambiar)){
-            DigitalOutput_Toggle(board->Led_amarillo);
-        }
-
-        if (DigitalInput_GetState(board->boton_prender)){
-            DigitalOutput_Activate(board->Led_rojo);
-        }
-
-        if (DigitalInput_GetState(board->boton_apagar)){
-            DigitalOutput_Desactivate(board->Led_rojo);
-        }
-
-
-    
-
-
-        divisor++;
-        if (divisor == 5) {
-            divisor = 0;
-            //Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, LED_3_GPIO, LED_3_BIT);
-            DigitalOutput_Toggle(board->Led_verde);
-        }
-
-        for (int index = 0; index < 100; index++) {
-            for (int delay = 0; delay < 25000; delay++) {
-                __asm("NOP");
-            }
-        }   */
 
         if (DigitalInput_HasActivate(board -> Aceptar)){
-            Display_WriteBCD(board -> display, (uint8_t[]){1,2,3,4},4);
+            Display_WriteBCD(board -> display, (uint8_t[]){0,1,2,3},4);
         }
 
         if (DigitalInput_HasActivate(board -> Cancelar)){
@@ -124,7 +89,7 @@ int main(void) {
         Display_Refresh(board -> display);
 
         for (int i=0; i<100; i++){
-            for(int delay = 0; delay <25000; delay++){
+            for(int delay = 0; delay <50; delay++){
                 __asm("NOP");
             }
         }
