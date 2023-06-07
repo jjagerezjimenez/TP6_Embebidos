@@ -66,7 +66,7 @@
 
 int main(void) {
 
-
+    int divisor = 0;
     board_t board = BoardCreate();
 
 
@@ -101,8 +101,13 @@ int main(void) {
         }
 
 
-
-
+        //Intento testear buzzer, pero no se muy bien como hacerlo con la placa que tengo
+        divisor++;
+        if (divisor == 5) {
+            divisor = 0;
+            //Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, LED_3_GPIO, LED_3_BIT);
+            DigitalOutput_Toggle(board->Buzzer);
+        }
 
 
 
