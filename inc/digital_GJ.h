@@ -1,12 +1,14 @@
+#ifndef DIGITAL_GJ_H
+#define DIGITAL_GJ_H             //Buscar referencia del digital de los videos (hueco clases 11 y 12)
+
+
 #include <stdint.h>
 #include <stdbool.h>
 
 #ifndef INSTANCIAS_GPIO
-#define INSTANCIAS_GPIO 4
+#define INSTANCIAS_GPIO 16
 #endif
 
-#ifndef DIGITAL_GJ_H
-#define DIGITAL_GJ_H             //Buscar referencia del digital de los videos (hueco clases 11 y 12)
 
 
 
@@ -41,4 +43,4 @@ void DigitalOutput_Desactivate(DigitalOutput_t Output);
 void DigitalOutput_Toggle(DigitalOutput_t Output);
 
 
-#endif
+#endif  // DIGITAL_GH_H

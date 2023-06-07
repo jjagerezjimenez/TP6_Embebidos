@@ -2,7 +2,7 @@
 #define PANTALLA_GJ_H
 
 #include <stdint.h>
-
+#include <stdbool.h>
 
 
 

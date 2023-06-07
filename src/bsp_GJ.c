@@ -96,22 +96,22 @@ void BuzzerInit(void){
 void KeysInit (void){
 
     Chip_SCU_PinMuxSet(KEY_F1_PORT, KEY_F1_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_PULLUP | KEY_F1_FUNC);
-    board.Set_time = DigitalInput_Create(KEY_F1_GPIO,KEY_F1_BIT, false);
+    board.Set_time = DigitalInput_Create(KEY_F1_GPIO,1,KEY_F1_BIT);                           //board.Set_time = DigitalInput_Create(KEY_F1_GPIO,KEY_F1_BIT, false); original 
 
     Chip_SCU_PinMuxSet(KEY_F2_PORT, KEY_F2_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_PULLUP | KEY_F2_FUNC);
-    board.Set_alarm = DigitalInput_Create(KEY_F2_GPIO,KEY_F2_BIT, false);
+    board.Set_alarm = DigitalInput_Create(KEY_F2_GPIO,1,KEY_F2_BIT);
 
     Chip_SCU_PinMuxSet(KEY_F3_PORT, KEY_F3_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_PULLUP | KEY_F3_FUNC);
-    board.decrementar = DigitalInput_Create(KEY_F3_GPIO,KEY_F3_BIT, false);
+    board.decrementar = DigitalInput_Create(KEY_F3_GPIO,1,KEY_F3_BIT);
 
     Chip_SCU_PinMuxSet(KEY_F4_PORT, KEY_F4_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_PULLUP | KEY_F4_FUNC);
-    board.incrementar = DigitalInput_Create(KEY_F4_GPIO,KEY_F4_BIT, false);
+    board.incrementar = DigitalInput_Create(KEY_F4_GPIO,1,KEY_F4_BIT);
 
     Chip_SCU_PinMuxSet(KEY_CANCEL_PORT, KEY_CANCEL_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_PULLUP | KEY_CANCEL_FUNC);
-    board.Cancelar = DigitalInput_Create(KEY_CANCEL_GPIO,KEY_CANCEL_BIT, false);
+    board.Cancelar = DigitalInput_Create(KEY_CANCEL_GPIO,1,KEY_CANCEL_BIT);
 
     Chip_SCU_PinMuxSet(KEY_ACCEPT_PORT, KEY_ACCEPT_PIN, SCU_MODE_INBUFF_EN | SCU_MODE_PULLUP | KEY_ACCEPT_FUNC);
-    board.Aceptar = DigitalInput_Create(KEY_ACCEPT_GPIO,KEY_ACCEPT_BIT, false);
+    board.Aceptar = DigitalInput_Create(KEY_ACCEPT_GPIO,1,KEY_ACCEPT_BIT);
 
 }
 
@@ -127,13 +127,13 @@ void ScreenTurnOff(void){
 void SegmentsTurnOn(uint8_t segments){
 
     Chip_GPIO_SetValue(LPC_GPIO_PORT,SEGMENTS_GPIO, (segments) & SEGMENTS_MASK);
-    Chip_GPIO_SetPinState(LPC_GPIO_PORT, SEGMENT_P_GPIO, SEGMENT_P_BIT, (segments & SEGMENT_P));   //?  
+    Chip_GPIO_SetPinState(LPC_GPIO_PORT, SEGMENT_P_GPIO, SEGMENT_P_BIT, (segments & SEGMENT_P));   //?   
 }
 
 
 void DigitTurnOn(uint8_t digit){
 
-    Chip_GPIO_SetValue(LPC_GPIO_PORT,DIGITS_GPIO, (1<<(digit))& DIGITS_MASK);
+    Chip_GPIO_SetValue(LPC_GPIO_PORT,DIGITS_GPIO, (1<<(digit))& DIGITS_MASK);       // (1 << (3 - (digit))) & DIGITS_MASK)
 
 }
 
@@ -151,10 +151,10 @@ board_t BoardCreate(void){
     KeysInit();
 
     board.display = Display_Create(4, &(struct display_driver_s){
-        .ScreenTurnOff  =   ScreenTurnOff,
-        .SegmentsTurnOn =   SegmentsTurnOn,
-        .DigitTurnOn  =   DigitTurnOn
-    });
+                                                                    .ScreenTurnOff  =   ScreenTurnOff,
+                                                                    .SegmentsTurnOn =   SegmentsTurnOn,
+                                                                    .DigitTurnOn  =   DigitTurnOn
+                                                                });
 
 
     return &board;

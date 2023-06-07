@@ -24,6 +24,7 @@ typedef struct DigitalOutput_s {
 //static struct DigitalOutput Output[INSTANCES] = {0};
 
 
+DigitalInput_t DigitalInput_Ocupado(void);
 
 DigitalInput_t DigitalInput_Ocupado(void){
     DigitalInput_t Input = NULL;
@@ -90,7 +91,7 @@ bool DigitalInput_HasDesactivate(DigitalInput_t Input) {
 
 //Salidas // Ver
 
-//DigitalOutput_t DigitalOutput_Ocupado(void);
+DigitalOutput_t DigitalOutput_Ocupado(void);
 
 DigitalOutput_t DigitalOutput_Ocupado(void){
     DigitalOutput_t Output = NULL;

@@ -1,5 +1,9 @@
+#ifndef CIAA_GJ_H
+#define CIAA_GJ_H
+
 
 #include "chip.h"
+#include "bsp_GJ.h"
 
 
 
@@ -66,3 +70,4 @@
 
 
 
+#endif /* CIAA_H */
