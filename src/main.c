@@ -66,7 +66,7 @@
 
 int main(void) {
 
-    int divisor = 0;
+    //int divisor = 0;
     board_t board = BoardCreate();
 
 
@@ -80,6 +80,7 @@ int main(void) {
 
         if (DigitalInput_HasActivate(board -> Cancelar)){
             Display_WriteBCD(board -> display, NULL, 0);
+            DigitalOutput_Desactivate(board -> Buzzer);           //para testear buzzer
         }
 
         //test 
@@ -90,6 +91,7 @@ int main(void) {
         
         if (DigitalInput_HasActivate(board -> Set_alarm)){
             Display_WriteBCD(board -> display, (uint8_t[]){0,0,2,0},4);
+            DigitalOutput_Activate(board -> Buzzer);               //para testear buzzer
         }
 
         if (DigitalInput_HasActivate(board -> decrementar)){
@@ -102,12 +104,12 @@ int main(void) {
 
 
         //Intento testear buzzer, pero no se muy bien como hacerlo con la placa que tengo
-        divisor++;
-        if (divisor == 5) {
-            divisor = 0;
-            //Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, LED_3_GPIO, LED_3_BIT);
-            DigitalOutput_Toggle(board->Buzzer);
-        }
+        //divisor++;
+        //if (divisor == 5) {
+        //    divisor = 0;
+        //    //Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, LED_3_GPIO, LED_3_BIT);
+        //    DigitalOutput_Toggle(board->Buzzer);
+        //}
 
 
 
