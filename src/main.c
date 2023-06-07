@@ -44,6 +44,8 @@
 #include <stdbool.h>
 #include "bsp_GJ.h"
 #include "digital_GJ.h"
+#include "pantalla_GJ.h"
+#include <stddef.h>
 
 /* === Macros definitions ====================================================================== */
 
@@ -64,7 +66,7 @@
 
 int main(void) {
 
-    int divisor = 0;
+    //int divisor = 0;
     //bool current_state, last_state = false;
     board_t board = BoardCreate();
 
@@ -72,7 +74,7 @@ int main(void) {
 
     while (true) {
 
-        if (DigitalInput_GetState(board->boton_prueba)) {
+        /*if (DigitalInput_GetState(board->boton_prueba)) {
             DigitalOutput_Activate(board->Led_azul);
         } else {
             DigitalOutput_Desactivate(board->Led_azul);
@@ -105,7 +107,30 @@ int main(void) {
             for (int delay = 0; delay < 25000; delay++) {
                 __asm("NOP");
             }
+        }   */
+
+        if (DigitalInput_HasActivate(board -> Aceptar)){
+            Display_WriteBCD(board -> display, (uint8_t[]){1,2,3,4},4);
         }
+
+        if (DigitalInput_HasActivate(board -> Cancelar)){
+            Display_WriteBCD(board -> display, NULL, 0);
+        }
+
+
+
+
+
+        Display_Refresh(board -> display);
+
+        for (int i=0; i<100; i++){
+            for(int delay = 0; delay <25000; delay++){
+                __asm("NOP");
+            }
+        }
+
+
+
     }
 }
 

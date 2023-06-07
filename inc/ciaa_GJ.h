@@ -1,12 +1,7 @@
-#ifndef CIAA_GJ_H
-#define CIAA_GJ_H
 
 #include "chip.h"
 
-#ifdef __cplusplus
-extern "C"{
 
-#endif
 
 #define LED_R_PORT 2
 #define LED_R_PIN 0
@@ -69,10 +64,5 @@ extern "C"{
 #define TEC_4_BIT 9
 
 
-#ifdef __cplusplsus
-}
-#endif
-
-#endif          /* CIAA_GJ_H */
 
 

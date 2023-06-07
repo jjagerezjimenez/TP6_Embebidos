@@ -6,21 +6,21 @@
 
 
 
-#define SEGMENTO_A (1 << 0)
-#define SEGMENTO_B (1 << 1)
-#define SEGMENTO_C (1 << 2)
-#define SEGMENTO_D (1 << 3)
-#define SEGMENTO_E (1 << 4)
-#define SEGMENTO_F (1 << 5)
-#define SEGMENTO_G (1 << 6)
-#define SEGMENTO_P (1 << 7)
+#define SEGMENT_A (1 << 0)
+#define SEGMENT_B (1 << 1)
+#define SEGMENT_C (1 << 2)
+#define SEGMENT_D (1 << 3)
+#define SEGMENT_E (1 << 4)
+#define SEGMENT_F (1 << 5)
+#define SEGMENT_G (1 << 6)
+#define SEGMENT_P (1 << 7)
 
 
 typedef struct display_s * display_t;
 
 typedef void (*display_screen_off_t)(void);
 
-typedef void(display_segments_on_t)(uint8_t segments);
+typedef void(*display_segments_on_t)(uint8_t segments);
 
 typedef void(*display_digit_on_t)(uint8_t digit);
 

@@ -54,7 +54,7 @@ void Display_WriteBCD(display_t display, uint8_t * number, uint8_t size) {
     memset(display -> memory, 0, sizeof(display -> memory));
     for(int i = 0; i < size; i++){
         if(i >= display -> digits) break;
-        display -> memory[i] = IMAGES(number[i]);
+        display -> memory[i] = IMAGES[number[i]];
 
     }
 
