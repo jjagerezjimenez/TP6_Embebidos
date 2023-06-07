@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include "digital_GJ.h"
 #include <stdint.h>
+#include "pantalla_GJ.h"
 
 
 

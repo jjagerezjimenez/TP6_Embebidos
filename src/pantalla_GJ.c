@@ -32,7 +32,7 @@ static display_t Display_Ocupado(void);
 
 display_t Display_Ocupado(void) {
     static struct display_s instances[1] = {0};
-    return &instances;
+    return &instances[0];
 }
 
 

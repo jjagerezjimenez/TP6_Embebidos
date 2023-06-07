@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "poncho_gj.h": "c"
+        "poncho_gj.h": "c",
+        "pantalla_gj.h": "c"
     }
 }
