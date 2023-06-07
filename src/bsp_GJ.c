@@ -3,6 +3,8 @@
 #include "digital_GJ.h"
 #include "chip.h"
 
+#include "pantalla_GJ.h"
+
 
 static struct board_s board ={0};           //sigue?
 
@@ -125,7 +127,7 @@ void ScreenTurnOff(void){
 void SegmentsTurnOn(uint8_t segments){
 
     Chip_GPIO_SetValue(LPC_GPIO_PORT,SEGMENTS_GPIO, (segments) & SEGMENTS_MASK);
-    Chip_GPIO_SetPinState(LPC_GPIO_PORT, SEGMENT_P_GPIO, SEGMENT_P_BIT, (segments & SEGMENTS_GPIO));     //ver!!!!!!!!!1
+    Chip_GPIO_SetPinState(LPC_GPIO_PORT, SEGMENT_P_GPIO, SEGMENT_P_BIT, (segments & SEGMENTO_P));   //?  
 }
 
 
@@ -200,7 +202,7 @@ board_t BoardCreate(void){
     board.display = Display_Create(4, &(struct display_driver_s){
         .ScreenTurnOff  =   ScreenTurnOff,
         .SegmentsTurnOn =   SegmentsTurnOn,
-        .DigitalTurnOn  =   DigitTurnOn,
+        .DigitTurnOn  =   DigitTurnOn
     });
 
 

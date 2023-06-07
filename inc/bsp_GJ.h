@@ -21,6 +21,8 @@ typedef struct board_s {
     DigitalInput_t  Aceptar;
     DigitalInput_t  Cancelar;
 
+    display_t        display;
+
 } const * const board_t;
 
 
