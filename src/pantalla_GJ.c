@@ -1,5 +1,6 @@
 #include "pantalla_GJ.h"
 #include <string.h>
+#include "chip.h"
 
 #ifndef DISPLAY_MAX_DIGITS
 #define DISPLAY_MAX_DIGITS 8 //consultar
