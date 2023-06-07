@@ -82,6 +82,26 @@ int main(void) {
             Display_WriteBCD(board -> display, NULL, 0);
         }
 
+        //test 
+
+        if (DigitalInput_HasActivate(board -> Set_time)){
+            Display_WriteBCD(board -> display, (uint8_t[]){0,0,0,1},4);
+        }
+        
+        if (DigitalInput_HasActivate(board -> Set_alarm)){
+            Display_WriteBCD(board -> display, (uint8_t[]){0,0,2,0},4);
+        }
+
+        if (DigitalInput_HasActivate(board -> decrementar)){
+            Display_WriteBCD(board -> display, (uint8_t[]){0,3,0,0},4);
+        }
+
+        if (DigitalInput_HasActivate(board -> incrementar)){
+            Display_WriteBCD(board -> display, (uint8_t[]){4,0,0,0},4);
+        }
+
+
+
 
 
 
